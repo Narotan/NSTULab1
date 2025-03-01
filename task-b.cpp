@@ -4,27 +4,28 @@
 
 using namespace std;
 
-pair<string, string> upperLowerCase() {
+string toUpper(const string &s) {
+    string result = s;
+    for (char &c : result) {
+        c = toupper(c);
+    }
+    return result;
+}
+
+string toLower(const string &s) {
+    string result = s;
+    for (char &c : result) {
+        c = tolower(c);
+    }
+    return result;
+}
+
+int main() {
     string s;
     cout << "Enter a string: ";
     getline(cin, s);
 
-    for (char &c : s) {
-        c = toupper(c);
-    }
-    string upS = s;
-
-    for (char &c : s) {
-        c = tolower(c);
-    }
-    string loS = s;
-
-    return make_pair(upS, loS);
-}
-
-int main() {
-    pair<string, string> caseVariants = upperLowerCase();
-    cout << "Uppercase: " << caseVariants.first << endl;
-    cout << "Lowercase: " << caseVariants.second << endl;
+    cout << "Uppercase: " << toUpper(s) << endl;
+    cout << "Lowercase: " << toLower(s) << endl;
     return 0;
 }
